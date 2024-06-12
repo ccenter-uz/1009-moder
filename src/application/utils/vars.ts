@@ -11,7 +11,7 @@ export const scssVariables = {
   darkBg: "#1B1D1C",
   questionBg: "#F5FEFD",
   fonts: {
-    titleSize: { base: "20px", sm: "20px", md: "32px", xl: "32px" },
+    titleSize: { base: "18px", sm: "18px", md: "24px", xl: "24px" },
     parag: { base: "13px", sm: "13px", md: "16px", xl: "16px" },
     span: { base: "12px", sm: "12px", md: "14px", xl: "14px" },
   },

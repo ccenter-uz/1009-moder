@@ -16,15 +16,13 @@ body {
 }
 .wrapper {
   width: 100%;
-  max-width: 1920px;
   height: 100%;
+  max-width: 1920px;
   margin: 0 auto;
 }
 
 .active {
-  color: #009393;
-  padding-bottom: 5px;
-  border-bottom: 1.5px solid #009393;
+  background: rgba(41, 164, 134, 1) !important;
 }
 /* filter-component */
 .filter {

@@ -33,9 +33,9 @@ const RootLayout = ({
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Box display={"flex"} className="wrapper">
               <Sidebar />
-              <Box w={"100%"} h={"100%"}>
+              <Box w={"100%"} overflowY={"scroll"} scrollBehavior={"smooth"}>
                 <Header />
-                {children}
+                <Box w={"100%"}>{children}</Box>
               </Box>
             </Box>
           </NextIntlClientProvider>
