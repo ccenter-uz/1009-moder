@@ -105,7 +105,7 @@ const Opportunities: FC = () => {
           h={{ base: "30px", sm: "30px", md: "35px", xl: "35px" }}
           onClick={handleAccordion}
         >
-          Create Accordion
+          {t("create")}
         </Button>
       </Box>
       {/* Accordion renders from API data */}
@@ -218,7 +218,7 @@ const Opportunities: FC = () => {
                 fontSize={{ base: "8px", sm: "8px", md: "11px", xl: "11px" }}
                 color={"grey"}
               >
-                Обновлено:
+                {t("updated")}
                 {new Date(data.update_date).toLocaleDateString("ru-GB", {
                   hour12: false,
                 })}

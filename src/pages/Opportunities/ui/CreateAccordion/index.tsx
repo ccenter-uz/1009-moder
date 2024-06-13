@@ -45,6 +45,7 @@ const CreateAccModal: FC<IcreateAccordionType> = ({
   close,
   setGetAgain,
 }) => {
+  const { t } = useLang();
   const pathname = usePathname();
   const lastLink = pathname.replaceAll("/", " ").split(" ").slice(-1).join();
   const { record, setRecord } = useOpportunitys();
@@ -152,7 +153,7 @@ const CreateAccModal: FC<IcreateAccordionType> = ({
           p={"8px"}
           fontSize={{ base: "14px", sm: "14px", md: "18px", xl: "18px" }}
         >
-          Create Accordion
+          {t("create-acc")}
         </ModalHeader>
         <Divider mb={"1em"} />
         <ModalCloseButton />
@@ -162,7 +163,7 @@ const CreateAccModal: FC<IcreateAccordionType> = ({
             mb={{ base: "14px", sm: "14px", md: "2em", xl: "2em" }}
           >
             <FormLabel htmlFor="title" {...labelStyle}>
-              Title accordion:
+              {t("title")}
             </FormLabel>
             <Input
               {...register("title")}
@@ -176,7 +177,7 @@ const CreateAccModal: FC<IcreateAccordionType> = ({
             mb={{ base: "14px", sm: "14px", md: "14px", xl: "14px" }}
           >
             <FormLabel htmlFor="warning-text" {...labelStyle}>
-              Warning information:
+              {t("warning-info")}
             </FormLabel>
             <Textarea
               {...register("warning")}
@@ -189,7 +190,7 @@ const CreateAccModal: FC<IcreateAccordionType> = ({
 
           <FormControl mb={{ base: "14px", sm: "14px", md: "2em", xl: "2em" }}>
             <FormLabel htmlFor="mention-text" {...labelStyle}>
-              Mention information:
+              {t("mention-info")}
             </FormLabel>
             <Textarea
               {...register("mention")}
@@ -215,7 +216,7 @@ const CreateAccModal: FC<IcreateAccordionType> = ({
             h={{ base: "30px", sm: "30px", md: "35px", xl: "35px" }}
             onClick={() => chooseCat("table")}
           >
-            Create table
+            {t("create-table")}
           </Button>
           <Button
             leftIcon={
@@ -231,7 +232,7 @@ const CreateAccModal: FC<IcreateAccordionType> = ({
             h={{ base: "30px", sm: "30px", md: "35px", xl: "35px" }}
             onClick={() => chooseCat("editor")}
           >
-            Create Editor
+            {t("create-text")}
           </Button>
         </Box>
         {/* TABLE VIEW */}
@@ -381,7 +382,7 @@ const CreateAccModal: FC<IcreateAccordionType> = ({
             mb={"8px"}
             type="submit"
           >
-            Save
+            {t("save")}
           </Button>
         </Box>
         {/* editableTable */}

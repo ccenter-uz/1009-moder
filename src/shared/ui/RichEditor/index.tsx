@@ -14,6 +14,7 @@ import {
   ModalHeader,
 } from "@chakra-ui/react";
 import { IRichEditor } from "@/shared/types";
+import { useLang } from "@/shared/hook/useLang";
 // dynamic import Quill
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
@@ -30,6 +31,7 @@ const RichEditor: FC<IRichEditor> = ({
   const [editorValue, setEditorValue] = useState(
     (defaultValue && defaultValue[0].text) || ""
   );
+  const { t } = useLang();
 
   // CLOSE
   const handleClose = () => {
@@ -55,7 +57,7 @@ const RichEditor: FC<IRichEditor> = ({
           p={{ base: "8px", sm: "", md: "1em", xl: "1em" }}
           fontSize={{ base: "14px", sm: "14px", md: "20px", xl: "20px" }}
         >
-          Create text editor
+          {t("create-editor")}
         </ModalHeader>
         <Divider mb={"1em"} />
         <ModalCloseButton />
@@ -78,7 +80,7 @@ const RichEditor: FC<IRichEditor> = ({
           my={"8px"}
           type="submit"
         >
-          Save
+          {t("save")}
         </Button>
       </ModalContent>
     </Modal>

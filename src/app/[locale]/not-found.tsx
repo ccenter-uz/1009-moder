@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslations } from "next-intl";
 import { Box, Text } from "@chakra-ui/react";
 

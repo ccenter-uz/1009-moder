@@ -1,12 +1,5 @@
-import { Home } from "@/pages/Home";
-import { Box } from "@chakra-ui/react";
+import { redirect } from "next/navigation";
 
-const App = () => {
-  return (
-    <Box>
-      <Home />
-    </Box>
-  );
-};
+export const App = () => redirect("/dashboard");
 
 export default App;

@@ -1,3 +1,3 @@
-import Opportunities from "./ui";
+import dynamic from "next/dynamic";
 
-export { Opportunities };
+export const OpportunitiesAsync = dynamic(() => import("./ui"));
