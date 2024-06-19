@@ -2,7 +2,7 @@
 import { scssVariables } from "@/application/utils/vars";
 import BreadCrumb from "@/shared/ui/Breadcrumb";
 import TableGen from "@/shared/ui/Table";
-import { Box, Flex, Icon, Text, Tooltip } from "@chakra-ui/react";
+import { Flex, Icon, Text, Tooltip } from "@chakra-ui/react";
 import React from "react";
 import { PenTool, Trash } from "react-feather";
 
@@ -49,7 +49,7 @@ export const columns = [
         <Flex gap={2}>
           <Tooltip label="Редактировать">
             <Icon
-              color={"orange"}
+              color={"teal"}
               as={PenTool}
               w={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
               h={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}

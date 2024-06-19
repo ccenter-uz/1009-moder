@@ -91,24 +91,24 @@ export const Links = [
       },
     ],
   },
-  {
-    id: 5,
-    title: "Управление",
-    href: "#",
-    icon: Sliders,
-    subMenu: [
-      {
-        id: 55,
-        title: "Пользователи",
-        href: "/manage/users",
-        icon: Minus,
-      },
-      {
-        id: 56,
-        title: "Разделы",
-        href: "/manage/razdel",
-        icon: Minus,
-      },
-    ],
-  },
+  // {
+  //   id: 5,
+  //   title: "Управление",
+  //   href: "#",
+  //   icon: Sliders,
+  //   subMenu: [
+  //     {
+  //       id: 55,
+  //       title: "Пользователи",
+  //       href: "/manage/users",
+  //       icon: Minus,
+  //     },
+  //     {
+  //       id: 56,
+  //       title: "Разделы",
+  //       href: "/manage/razdel",
+  //       icon: Minus,
+  //     },
+  //   ],
+  // },
 ];
