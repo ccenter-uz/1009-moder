@@ -64,6 +64,7 @@ export const DrawerLinks: FC<Props> = (props) => {
                     <AccordionButton
                       as={Link}
                       href={subLink.href}
+                      onClick={() => onClose()}
                       color={"teal"}
                       fontSize={scssVariables.fonts.span}
                       className={`${

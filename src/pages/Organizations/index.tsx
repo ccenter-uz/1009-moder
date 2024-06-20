@@ -12,3 +12,7 @@ export const MyorgsAsync = dynamic(() =>
 export const RequestsAsync = dynamic(() =>
   import("./Requests").then((res) => res.Requests)
 );
+
+export const AllorgsAsync = dynamic(() =>
+  import("./All").then((res) => res.Allorgs)
+);

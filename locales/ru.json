@@ -77,5 +77,8 @@
   "autobus": "Автобус №",
   "micro-autobus": "Микро автобус №",
   "marshrut": "Маршрутка №",
-  "metro_station": "Станция метро "
+  "metro_station": "Станция метро ",
+  "comments": "Отзывы",
+  "main-company-info": "Общее сведение о компании",
+  "rate": "Рейтинг Заведения"
 }

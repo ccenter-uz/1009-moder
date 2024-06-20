@@ -76,5 +76,8 @@
   "autobus": "Avtobus raqami.",
   "micro-autobus": "Mikroavtobus raqami.",
   "marshrut": "Mikroavtobus №",
-  "metro_station": "Metro stantsiyasi"
+  "metro_station": "Metro stantsiyasi",
+  "comments": "Sharhlar",
+  "main-company-info": "Kompaniya haqida umumiy ma'lumot",
+  "rate": "Tashkilot reytingi"
 }

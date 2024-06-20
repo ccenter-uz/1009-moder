@@ -24,7 +24,7 @@ import { scssVariables } from "@/application/utils/vars";
 
 export const Addorg: FC = () => {
   const { t } = useLang();
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams()!;
   const router = useRouter();
   const breadcrumbs = [
     {

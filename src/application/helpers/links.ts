@@ -89,6 +89,12 @@ export const Links = [
         href: "/organizations/myorgs",
         icon: Minus,
       },
+      {
+        id: 48,
+        title: "Все организации",
+        href: "/organizations/all",
+        icon: Minus,
+      },
     ],
   },
   // {

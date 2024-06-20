@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  Button,
   Icon,
   Text,
 } from "@chakra-ui/react";
@@ -48,7 +49,7 @@ export const Sidebar: FC<Props> = (props) => {
         pt={"1em"}
       >
         {Links.map((link) => (
-          <Accordion key={link.id} allowToggle>
+          <Accordion key={link.id} allowMultiple>
             <AccordionItem border={"none"}>
               <AccordionButton
                 as={Link}
@@ -82,16 +83,26 @@ export const Sidebar: FC<Props> = (props) => {
               {link.subMenu &&
                 link.subMenu.map((subLink) => (
                   <AccordionPanel key={subLink.id} p={"0"}>
-                    <AccordionButton
+                    <Button
+                      w={"100%"}
                       as={Link}
                       href={subLink.href}
+                      bg={"none"}
+                      _hover={{ bg: "rgba(0,0,0,0.05)" }}
                       color={"lightgrey"}
+                      borderRadius={"0"}
+                      h={"35px"}
                       fontSize={scssVariables.fonts.span}
                       className={`${
                         pathname == `/${locale}${subLink.href}` ? "active" : ""
                       }`}
                     >
-                      <Box display={"flex"} alignItems={"center"} gap={"10px"}>
+                      <Box
+                        w={"100%"}
+                        display={"flex"}
+                        alignItems={"center"}
+                        gap={"10px"}
+                      >
                         <Icon
                           as={subLink.icon}
                           color={"#fff"}
@@ -100,7 +111,7 @@ export const Sidebar: FC<Props> = (props) => {
                         />
                         <Text>{subLink.title}</Text>
                       </Box>
-                    </AccordionButton>
+                    </Button>
                   </AccordionPanel>
                 ))}
             </AccordionItem>
