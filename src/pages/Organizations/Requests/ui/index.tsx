@@ -1,15 +1,22 @@
 "use client";
 import { scssVariables } from "@/application/utils/vars";
 import { Link } from "@/navigation";
+import { usePagination } from "@/shared/hook/usePaginate";
 import BreadCrumb from "@/shared/ui/Breadcrumb";
+import Pagination from "@/shared/ui/Pagination";
+import { SortSelect } from "@/shared/ui/SortSelect";
 import TableGen from "@/shared/ui/Table";
 import { Box, Flex, Icon, Text, Tooltip } from "@chakra-ui/react";
+import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 import { Check, Eye, X } from "react-feather";
 
 type Props = {};
 
 export const Requests = (props: Props) => {
+  const router = useRouter();
+  const searchParams = useSearchParams()!;
+  const { current, pageSize, total, setTotal } = usePagination();
   const breadcrumb = [
     {
       id: 1,
@@ -71,8 +78,8 @@ export const Requests = (props: Props) => {
               <Link href={`/result/${row.id}`}>
                 <Icon
                   as={Eye}
-                  width={18}
-                  height={18}
+                  w={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
+                  h={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
                   color={scssVariables.primary}
                   _hover={{ opacity: "0.8", cursor: "pointer" }}
                 />
@@ -101,7 +108,12 @@ export const Requests = (props: Props) => {
               cursor={"pointer"}
               _hover={{ opacity: "0.8", cursor: "pointer" }}
             >
-              <Icon as={Check} width={18} height={18} color={"green"} />
+              <Icon
+                as={Check}
+                w={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
+                h={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
+                color={"green"}
+              />
               <Text fontSize={scssVariables.fonts.span} color={"green"}>
                 Подтвердить
               </Text>
@@ -112,7 +124,12 @@ export const Requests = (props: Props) => {
               cursor={"pointer"}
               _hover={{ opacity: "0.8", cursor: "pointer" }}
             >
-              <Icon as={X} width={18} height={18} color={"crimson"} />
+              <Icon
+                as={X}
+                w={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
+                h={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
+                color={"crimson"}
+              />
               <Text fontSize={scssVariables.fonts.span} color={"crimson"}>
                 Отклонить
               </Text>
@@ -150,10 +167,45 @@ export const Requests = (props: Props) => {
     },
   ];
 
+  // SORT
+  const handleSort = ({ target: { value } }: { target: { value: string } }) => {
+    if (value === "") return null;
+
+    router.push(`?sort=${value}&page=1&pageSize=10`);
+  };
+  // PAGINATION
+  const handlePageChange = (page: number) => {
+    router.push(
+      `?sort=${searchParams.get("sort")}&page=${page}&pageSize=${
+        searchParams.get("pageSize") ?? 10
+      }`
+    );
+  };
+  const handlePageSizeChange = (pageSize: number) => {
+    router.push(
+      `?sort=${searchParams.get("sort")}&page=1&pageSize=${pageSize}`
+    );
+  };
+
   return (
     <Box>
       <BreadCrumb item={breadcrumb} />
+      <SortSelect
+        defaultValue={searchParams.get("sort") || "by_date"}
+        onChange={handleSort}
+        options={[
+          { label: "По дате", value: "by_date" },
+          { label: "По алфавиту", value: "by_alphabet" },
+        ]}
+      />
       <TableGen columns={columns} dataSource={dataSource} />
+      <Pagination
+        total={total}
+        current={current}
+        pageSize={pageSize}
+        onChange={handlePageChange}
+        onPageSizeChange={handlePageSizeChange}
+      />
     </Box>
   );
 };

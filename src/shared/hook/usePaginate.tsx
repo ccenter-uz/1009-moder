@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export const usePagination = () => {
   const router = useRouter();
-  const params = useSearchParams();
+  const params = useSearchParams()!;
   const paginate = {
     current: params.has("page") ? Number(params.get("page")) : 1,
     pageSize: params.has("pageSize") ? Number(params.get("pageSize")) : 10,

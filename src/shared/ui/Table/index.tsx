@@ -43,6 +43,7 @@ const TableGen: FC<ItableType> = ({
       <TableContainer
         borderRadius={"4px"}
         border={border ? "1px solid #E2E8F0" : "none"}
+        boxShadow={"0px 5px 8px 0px rgba(0, 0, 0, 0.10)"}
       >
         <Table aria-label="table">
           <Thead>
