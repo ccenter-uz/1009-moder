@@ -80,5 +80,9 @@
   "comments": "Sharhlar",
   "main-company-info": "Kompaniya haqida umumiy ma'lumot",
   "rate": "Tashkilot reytingi",
-  "sort": "Saralash turi"
+  "sort": "Saralash turi",
+  "all-organizations": "Barcha tashkilotlar",
+  "myOrganizations": "Mening tashkilotlarim",
+  "Organizations": "Tashkilotlar",
+  "requests": "Ilovalar"
 }

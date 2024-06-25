@@ -81,5 +81,9 @@
   "comments": "Отзывы",
   "main-company-info": "Общее сведение о компании",
   "rate": "Рейтинг Заведения",
-  "sort": "Сортировать по"
+  "sort": "Сортировать по",
+  "all-organizations": "Все организации",
+  "myOrganizations": "Мои организации",
+  "Organizations": "Организации",
+  "requests": "Заявки"
 }

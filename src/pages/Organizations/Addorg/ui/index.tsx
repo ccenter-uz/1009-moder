@@ -19,8 +19,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Swal from "sweetalert2";
 import { useAddorgSlicer } from "../model/hook/useAddorgSlicer";
 import { useLang } from "@/shared/hook/useLang";
-import BreadCrumb from "@/shared/ui/Breadcrumb";
 import { scssVariables } from "@/application/utils/vars";
+import { TitlePart } from "@/entities/TitlePart";
 
 export const Addorg: FC = () => {
   const { t } = useLang();
@@ -29,7 +29,7 @@ export const Addorg: FC = () => {
   const breadcrumbs = [
     {
       id: 1,
-      title: searchParams.get("id") ? (
+      title: searchParams.has("id") ? (
         <Text
           as={"span"}
           cursor={"pointer"}
@@ -42,7 +42,7 @@ export const Addorg: FC = () => {
     },
     {
       id: 2,
-      title: searchParams.get("id") ? (
+      title: searchParams.has("id") ? (
         <Text as={"span"}>{t("edit-organization")}</Text>
       ) : (
         <Text as={"span"}>{t("add-organization")}</Text>
@@ -128,8 +128,7 @@ export const Addorg: FC = () => {
 
   return (
     <Box>
-      <BreadCrumb item={breadcrumbs} />
-
+      <TitlePart title={t("add-organization")} breadcrumb={breadcrumbs} />
       <form onSubmit={handleSubmit(POST)} id="add-org">
         <SimpleGrid
           columns={{ base: 1, sm: 1, md: 2, xl: 3 }}

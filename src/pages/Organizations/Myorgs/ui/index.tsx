@@ -1,8 +1,9 @@
 "use client";
 import { scssVariables } from "@/application/utils/vars";
+import { TitlePart } from "@/entities/TitlePart";
 import { Link } from "@/navigation";
+import { useLang } from "@/shared/hook/useLang";
 import { usePagination } from "@/shared/hook/usePaginate";
-import BreadCrumb from "@/shared/ui/Breadcrumb";
 import Pagination from "@/shared/ui/Pagination";
 import { SortSelect } from "@/shared/ui/SortSelect";
 import TableGen from "@/shared/ui/Table";
@@ -14,23 +15,24 @@ import { Eye, PenTool, Trash } from "react-feather";
 type Props = {};
 
 export const Myorgs = (props: Props) => {
+  const { t } = useLang();
   const router = useRouter();
   const searchParams = useSearchParams()!;
   const { current, pageSize, total, setTotal } = usePagination();
   const breadcrumb = [
     {
       id: 1,
-      title: "Мои организации",
+      title: t("myOrganizations"),
     },
     {
       id: 2,
       title: (
         <Text
           as={"span"}
-          color={scssVariables.primary}
+          color={scssVariables.mainColor}
           fontSize={scssVariables.fonts.span}
         >
-          Все
+          {t("all")}
         </Text>
       ),
     },
@@ -80,7 +82,7 @@ export const Myorgs = (props: Props) => {
                   as={Eye}
                   w={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
                   h={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
-                  color={scssVariables.primary}
+                  color={scssVariables.mainColor}
                   _hover={{ opacity: "0.8", cursor: "pointer" }}
                 />
               </Link>
@@ -159,7 +161,7 @@ export const Myorgs = (props: Props) => {
 
   return (
     <>
-      <BreadCrumb item={breadcrumb} />
+      <TitlePart title={t("myOrganizations")} breadcrumb={breadcrumb} />
       <SortSelect
         defaultValue={searchParams.get("sort") || "by_date"}
         onChange={handleSort}

@@ -1,9 +1,10 @@
 "use client";
 import { scssVariables } from "@/application/utils/vars";
+import { TitlePart } from "@/entities/TitlePart";
 import { SearchFilter } from "@/feature/ResultPageFilter";
 import { Link } from "@/navigation";
+import { useLang } from "@/shared/hook/useLang";
 import { usePagination } from "@/shared/hook/usePaginate";
-import BreadCrumb from "@/shared/ui/Breadcrumb";
 import Pagination from "@/shared/ui/Pagination";
 import TableGen from "@/shared/ui/Table";
 import { Box, Flex, Icon, Text, Tooltip } from "@chakra-ui/react";
@@ -13,22 +14,23 @@ import { Eye } from "react-feather";
 
 export const Allorgs: FC = () => {
   const { current, pageSize, total, setTotal } = usePagination();
+  const { t } = useLang();
   const searchParams = useSearchParams();
   const router = useRouter();
   const breadcrumb = [
     {
       id: 1,
-      title: "Организации",
+      title: t("Organizations"),
     },
     {
       id: 2,
       title: (
         <Text
           as={"span"}
-          color={scssVariables.primary}
+          color={scssVariables.mainColor}
           fontSize={scssVariables.fonts.span}
         >
-          Все
+          {t("all")}
         </Text>
       ),
     },
@@ -78,7 +80,7 @@ export const Allorgs: FC = () => {
                   as={Eye}
                   w={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
                   h={{ base: "15px", sm: "15px", md: "20px", xl: "20px" }}
-                  color={scssVariables.primary}
+                  color={scssVariables.mainColor}
                   _hover={{ opacity: "0.8", cursor: "pointer" }}
                 />
               </Link>
@@ -166,8 +168,8 @@ export const Allorgs: FC = () => {
   };
 
   return (
-    <Box my={"1em"}>
-      <BreadCrumb item={breadcrumb} />
+    <Box my={{ base: "0", sm: "0", md: "0.5em", xl: "1em" }}>
+      <TitlePart title={t("all-organizations")} breadcrumb={breadcrumb} />
       <Flex flexDirection={"column"} gap={"20px"}>
         <SearchFilter />
         <TableGen columns={columns} dataSource={data} />
