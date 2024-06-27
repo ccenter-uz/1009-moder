@@ -20,7 +20,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FC } from "react";
 import { PenTool, Plus, Search, Trash } from "react-feather";
 
-export const Razdel: FC = () => {
+export const Podrazdel: FC = () => {
   const { current, pageSize, total, setTotal } = usePagination();
   const { t } = useLang();
   const searchParams = useSearchParams();
@@ -28,7 +28,7 @@ export const Razdel: FC = () => {
   const breadcrumb = [
     {
       id: 1,
-      title: t("razdel"),
+      title: t("podrazdel"),
     },
     {
       id: 2,
@@ -59,7 +59,6 @@ export const Razdel: FC = () => {
       dataIndex: "date",
       key: "date",
     },
-
     {
       title: "Действия",
       dataIndex: "action",
@@ -70,7 +69,7 @@ export const Razdel: FC = () => {
           <Flex align={"center"} justify={"center"} gap={"10px"}>
             <Tooltip label="Редактировать">
               <Icon
-                color={scssVariables.mainColor}
+                color={"green.300"}
                 as={PenTool}
                 w={{ base: "14px", sm: "14px", md: "18px", xl: "18px" }}
                 h={{ base: "14px", sm: "14px", md: "18px", xl: "18px" }}
@@ -97,14 +96,11 @@ export const Razdel: FC = () => {
     {
       id: 1,
       title: "Aloqa markazi",
-      podrazdel: "12",
       date: "01.01.2022 00:00:00",
     },
     {
       id: 2,
-
       title: "Aloqa markazi",
-      podrazdel: "12",
       date: "01.01.2022 00:00:00",
     },
   ];
@@ -120,7 +116,7 @@ export const Razdel: FC = () => {
 
   return (
     <Box my={{ base: "0", sm: "0", md: "0.5em", xl: "1em" }}>
-      <TitlePart title={t("razdel")} breadcrumb={breadcrumb} />
+      <TitlePart title={t("podrazdel")} breadcrumb={breadcrumb} />
       <Box display={"flex"} w={"100%"} justifyContent={"flex-end"}>
         <Button
           h={{ base: "25px", sm: "25px", md: "35px", xl: "35px" }}

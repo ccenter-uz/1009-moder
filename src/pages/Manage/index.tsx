@@ -6,3 +6,6 @@ export const RazdelAsync = dynamic(() =>
 export const UsersAsync = dynamic(() =>
   import("./Users").then((res) => res.Users)
 );
+export const PodrazdelAsync = dynamic(() =>
+  import("./Podrazdel").then((res) => res.Podrazdel)
+);
