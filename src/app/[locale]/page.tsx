@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export const App = () => redirect("/dashboard");
-
-export default App;
+export default function App() {
+  return redirect("/dashboard");
+}

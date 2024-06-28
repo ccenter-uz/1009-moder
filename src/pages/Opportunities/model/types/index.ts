@@ -1,4 +1,4 @@
-import { TableData } from "@/@core/shared/types/types";
+import { TableData } from "@/shared/types";
 
 export type IdataInfoFromApi = {
   id: string;

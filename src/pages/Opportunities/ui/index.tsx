@@ -32,9 +32,9 @@ import GuestTable from "@/shared/ui/GuestTable";
 import BreadCrumb from "@/shared/ui/Breadcrumb";
 
 const Opportunities: FC = () => {
-  const pathname = usePathname();
+  const pathname = usePathname()!;
   const lastLink = pathname.replaceAll("/", " ").split(" ").slice(-1).join();
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams()!;
   const { t, locale } = useLang();
   const breadcrumblinks = [
     { id: 1, title: `${t("opportunities")}` },

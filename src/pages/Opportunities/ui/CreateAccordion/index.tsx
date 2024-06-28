@@ -46,7 +46,7 @@ const CreateAccModal: FC<IcreateAccordionType> = ({
   setGetAgain,
 }) => {
   const { t } = useLang();
-  const pathname = usePathname();
+  const pathname = usePathname()!;
   const lastLink = pathname.replaceAll("/", " ").split(" ").slice(-1).join();
   const { record, setRecord } = useOpportunitys();
   const { locale } = useLang();

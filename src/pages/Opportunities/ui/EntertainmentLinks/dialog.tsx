@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { FC, useEffect } from "react";
-import { useFormStatus } from "react-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { createCat, updateCat } from "../../api/actions";
@@ -31,7 +30,6 @@ const DialogEntertainmentLinks: FC<IDialogTypes> = ({
   editInfo,
   getCategories,
 }) => {
-  const { pending } = useFormStatus();
   const { register, handleSubmit, reset } = useForm();
   const { t } = useLang();
 
@@ -91,7 +89,6 @@ const DialogEntertainmentLinks: FC<IDialogTypes> = ({
               {t("add")}(UZ):
             </FormLabel>
             <InputGen
-              isDisabled={pending}
               id="add-link"
               {...register("title")}
               fontSize={{ base: "12px", sm: "12px", md: "14px", xl: "14px" }}
@@ -106,7 +103,6 @@ const DialogEntertainmentLinks: FC<IDialogTypes> = ({
               {t("add")}(РУ)
             </FormLabel>
             <InputGen
-              isDisabled={pending}
               id="add-link"
               {...register("title_ru")}
               fontSize={{ base: "12px", sm: "12px", md: "14px", xl: "14px" }}
@@ -115,7 +111,6 @@ const DialogEntertainmentLinks: FC<IDialogTypes> = ({
           </FormControl>
           <Box display={"flex"} justifyContent={"flex-end"}>
             <Button
-              isLoading={pending}
               type="submit"
               form="link-entertainment-form"
               w={{

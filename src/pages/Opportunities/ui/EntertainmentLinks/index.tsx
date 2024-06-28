@@ -42,7 +42,7 @@ type IEnterLinksType = {
 const EntertainmentLinks: FC<IEnterLinksType> = ({ setData, getAgain }) => {
   const { colorMode } = useColorMode();
   const { locale } = useLang();
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams()!;
   const selectedPage = searchParams.get("page");
   const { isOpen, onClose, onOpen, onToggle } = useDisclosure();
   // const [linkDialog, setLinkDialog] = useState<boolean>(false)
