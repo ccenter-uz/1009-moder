@@ -2,9 +2,9 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import { ToastContainer } from "react-toastify";
-import { Providers } from "@/application/Providers";
-import { Header } from "@/widgets/Header";
-import { Sidebar } from "@/widgets/Sidebar";
+import { Providers } from "@/@core/application/Providers";
+import { Header } from "@/@core/widgets/Header";
+import { Sidebar } from "@/@core/widgets/Sidebar";
 import { Box } from "@chakra-ui/react";
 
 const inter = Inter({

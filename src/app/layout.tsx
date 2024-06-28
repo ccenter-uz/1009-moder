@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import "@/application/style/global.css";
+import "@/@core/application/style/global.css";
 // style for toast
 import "react-toastify/dist/ReactToastify.min.css";
 

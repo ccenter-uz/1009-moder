@@ -1,4 +1,4 @@
-import { PaperContent } from "@/shared/ui/PaperContent";
+import { PaperContent } from "@/@core/shared/ui/PaperContent";
 
 const Statistic = () => {
   return <PaperContent>Statistic</PaperContent>;

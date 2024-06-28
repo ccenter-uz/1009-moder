@@ -1,5 +1,5 @@
-import { DashboardAsync } from "@/pages/Dashboard";
-import { PaperContent } from "@/shared/ui/PaperContent";
+import { DashboardAsync } from "@/@core/pages/Dashboard";
+import { PaperContent } from "@/@core/shared/ui/PaperContent";
 import { FC } from "react";
 
 type Props = {};

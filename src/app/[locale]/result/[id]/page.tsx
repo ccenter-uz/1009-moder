@@ -1,5 +1,5 @@
-import { ResultAsync } from "@/pages/Result";
-import { PaperContent } from "@/shared/ui/PaperContent";
+import { ResultAsync } from "@/@core/pages/Result";
+import { PaperContent } from "@/@core/shared/ui/PaperContent";
 import { FC } from "react";
 
 type Props = {};

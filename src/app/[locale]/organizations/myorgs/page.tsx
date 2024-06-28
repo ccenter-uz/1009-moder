@@ -1,5 +1,5 @@
-import { MyorgsAsync } from "@/pages/Organizations";
-import { PaperContent } from "@/shared/ui/PaperContent";
+import { MyorgsAsync } from "@/@core/pages/Organizations";
+import { PaperContent } from "@/@core/shared/ui/PaperContent";
 import { FC } from "react";
 
 type Props = {};

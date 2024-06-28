@@ -1,5 +1,5 @@
-import { UsersAsync } from "@/pages/Manage";
-import { PaperContent } from "@/shared/ui/PaperContent";
+import { UsersAsync } from "@/@core/pages/Manage";
+import { PaperContent } from "@/@core/shared/ui/PaperContent";
 
 type Props = {};
 

@@ -1,5 +1,5 @@
-import { RazdelAsync } from "@/pages/Manage";
-import { PaperContent } from "@/shared/ui/PaperContent";
+import { RazdelAsync } from "@/@core/pages/Manage";
+import { PaperContent } from "@/@core/shared/ui/PaperContent";
 
 type Props = {};
 

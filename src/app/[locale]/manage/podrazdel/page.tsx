@@ -1,5 +1,5 @@
-import { PodrazdelAsync } from "@/pages/Manage";
-import { PaperContent } from "@/shared/ui/PaperContent";
+import { PodrazdelAsync } from "@/@core/pages/Manage";
+import { PaperContent } from "@/@core/shared/ui/PaperContent";
 
 type Props = {};
 

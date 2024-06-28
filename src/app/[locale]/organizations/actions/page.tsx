@@ -1,5 +1,5 @@
-import { ActionsAsync } from "@/pages/Organizations";
-import { PaperContent } from "@/shared/ui/PaperContent";
+import { ActionsAsync } from "@/@core/pages/Organizations";
+import { PaperContent } from "@/@core/shared/ui/PaperContent";
 import { FC } from "react";
 
 type Props = {};

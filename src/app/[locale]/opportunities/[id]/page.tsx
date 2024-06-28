@@ -1,4 +1,4 @@
-import { OpportunitiesAsync } from "@/pages/Opportunities";
+import { OpportunitiesAsync } from "@/@core/pages/Opportunities";
 import { FC } from "react";
 
 const OpportunityPage: FC = () => <OpportunitiesAsync />;
