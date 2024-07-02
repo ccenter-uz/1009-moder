@@ -10,6 +10,7 @@ import {
   Button,
   Flex,
   Icon,
+  Image,
   Input,
   InputGroup,
   InputLeftElement,
@@ -19,8 +20,10 @@ import {
 import { useRouter, useSearchParams } from "next/navigation";
 import { FC } from "react";
 import { PenTool, Plus, Search, Trash } from "react-feather";
+import { checkStatus } from "../model/helperFn";
+import { SortSelect } from "@/@core/shared/ui/SortSelect";
 
-export const Razdel: FC = () => {
+export const StatisticsUsers: FC = () => {
   const { current, pageSize, total, setTotal } = usePagination();
   const { t } = useLang();
   const searchParams = useSearchParams();
@@ -28,7 +31,7 @@ export const Razdel: FC = () => {
   const breadcrumb = [
     {
       id: 1,
-      title: t("razdel"),
+      title: t("statistics-users"),
     },
     {
       id: 2,
@@ -50,93 +53,82 @@ export const Razdel: FC = () => {
       key: "id",
     },
     {
-      title: "Название",
-      dataIndex: "title",
-      key: "title",
+      title: "ФИО",
+      dataIndex: "full_name",
+      key: "full_name",
     },
     {
-      title: "Время создания",
+      title: "Время ",
       dataIndex: "date",
       key: "date",
     },
 
     {
       title: "Действия",
-      dataIndex: "action",
-      key: "action",
-      align: "center",
-      render: (t: any, row: any) => {
-        return (
-          <Flex align={"center"} justify={"center"} gap={"10px"}>
-            <Tooltip label="Редактировать">
-              <Icon
-                color={scssVariables.mainColor}
-                as={PenTool}
-                w={{ base: "14px", sm: "14px", md: "18px", xl: "18px" }}
-                h={{ base: "14px", sm: "14px", md: "18px", xl: "18px" }}
-                cursor={"pointer"}
-                _hover={{ opacity: "0.8", transition: "all 0.2s linear" }}
-              />
-            </Tooltip>
-            <Tooltip label="Удалить">
-              <Icon
-                color={"red.300"}
-                as={Trash}
-                w={{ base: "14px", sm: "14px", md: "18px", xl: "18px" }}
-                h={{ base: "14px", sm: "14px", md: "18px", xl: "18px" }}
-                cursor={"pointer"}
-                _hover={{ opacity: "0.8", transition: "all 0.2s linear" }}
-              />
-            </Tooltip>
-          </Flex>
-        );
+      dataIndex: "status",
+      key: "status",
+      render: (text: any, row: any) => {
+        return checkStatus(text, t);
       },
     },
   ];
   const data = [
     {
       id: 1,
-      title: "Aloqa markazi",
-      podrazdel: "12",
+      full_name: "Aliyeev Aliyev Alisher",
       date: "01.01.2022 00:00:00",
+      status: "edit",
     },
     {
       id: 2,
-
-      title: "Aloqa markazi",
-      podrazdel: "12",
+      full_name: "Botirov Botir Botirovich",
+      status: "delete",
+      date: "01.01.2022 00:00:00",
+    },
+    {
+      id: 3,
+      full_name: "Aliyeev Aliyev Alisher",
+      status: "create",
       date: "01.01.2022 00:00:00",
     },
   ];
 
+  // SORT
+  const handleSort = async ({
+    target: { value },
+  }: {
+    target: { value: string };
+  }) => {
+    console.log(value, "e");
+    router.push(`?sort=${value}&page=1&pageSize=10`);
+  };
+
   // PAGINATION
   const handlePageChange = (page: number) => {
     const params = searchParams!;
-    router.push(`?page=${page}&pageSize=${params.get("pageSize") || 10}`);
+    router.push(
+      `?sort=${params.get("sort")}&page=${page}&pageSize=${
+        params.get("pageSize") || 10
+      }`
+    );
   };
   const handlePageSizeChange = (pageSize: number) => {
-    router.push(`?page=1&pageSize=${pageSize}`);
+    const params = searchParams!;
+    router.push(`?sort=${params.get("sort")}&page=1&pageSize=${pageSize}`);
   };
-
   return (
     <Box my={{ base: "0", sm: "0", md: "0.5em", xl: "1em" }}>
-      <TitlePart title={t("razdel")} breadcrumb={breadcrumb} />
-      <Box display={"flex"} w={"100%"} justifyContent={"flex-end"}>
-        <Button
-          h={{ base: "25px", sm: "25px", md: "35px", xl: "35px" }}
-          bg={"transparent"}
-          color={scssVariables.primary}
-          fontSize={scssVariables.fonts.parag}
-          fontWeight={400}
-          _hover={{ opacity: "0.8", transition: "all 0.2s linear" }}
-          _focus={{ boxShadow: "none" }}
-          _active={{ transform: "scale(0.98)" }}
-          rightIcon={<Plus width={"15"} height={"15"} />}
-          px={0}
-        >
-          {t("create")}
-        </Button>
-      </Box>
+      <TitlePart title={t("statistics-users")} breadcrumb={breadcrumb} />
+      <SortSelect
+        defaultValue={searchParams.get("sort") || "by_all"}
+        onChange={handleSort}
+        options={[
+          { label: "Все", value: "by_all" },
+          { label: "Изменено", value: "by_edit" },
+          { label: "Удалено", value: "by_delete" },
+          { label: "Создано", value: "by_create" },
+        ]}
+      />
       <InputGroup
         mb={"1em"}
         h={{ base: "25px", sm: "25px", md: "35px", xl: "35px" }}
@@ -159,6 +151,28 @@ export const Razdel: FC = () => {
           placeholder={t("search")}
         />
       </InputGroup>
+      <Button
+        fontSize={scssVariables.fonts.span}
+        w={{
+          base: "fit-content",
+          sm: "fit-content",
+          md: "auto",
+          xl: "auto",
+        }}
+        h={{ base: "30px", sm: "30px", md: "40px", xl: "40px" }}
+        variant={"link"}
+        color={"green.500"}
+        leftIcon={
+          <Image
+            src="/excel-export.png"
+            alt="export excel"
+            w={"20px"}
+            h={"20px"}
+          />
+        }
+      >
+        Export
+      </Button>
       <TableGen columns={columns} dataSource={data} />
       <Pagination
         total={total}

@@ -7,10 +7,11 @@ type Props = {
   options: { value: string; label: string }[];
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   defaultValue: string;
+  sort_text?: boolean;
 };
 
 export const SortSelect: FC<Props> = (props) => {
-  const { options, onChange, defaultValue } = props;
+  const { options, onChange, defaultValue, sort_text } = props;
   const { t } = useLang();
 
   return (
@@ -26,9 +27,11 @@ export const SortSelect: FC<Props> = (props) => {
       mb={"10px"}
       flexDirection={{ base: "column", sm: "column", md: "row", xl: "row" }}
     >
-      <Text color={scssVariables.primary} fontSize={scssVariables.fonts.span}>
-        {t("sort")}
-      </Text>
+      {sort_text ? null : (
+        <Text color={scssVariables.primary} fontSize={scssVariables.fonts.span}>
+          {t("sort")}
+        </Text>
+      )}
       <Select
         onChange={onChange}
         defaultValue={defaultValue}

@@ -85,5 +85,12 @@
   "all-organizations": "Все организации",
   "myOrganizations": "Мои организации",
   "Organizations": "Организации",
-  "requests": "Заявки"
+  "requests": "Заявки",
+  "statistics-users": "Статистика пользователей",
+  "statistics-transactions": "Статистика транзакции",
+  "statistics-orgs": "Статистика организации",
+  "statistics-opportunities": "Статистика возможности",
+  "edited": "изменено",
+  "created": "создано",
+  "deleted": "удалено"
 }

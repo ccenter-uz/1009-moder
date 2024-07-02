@@ -17,8 +17,34 @@ export const Links = [
   {
     id: 2,
     title: "Статистика",
-    href: "/statistic",
+    href: "#",
     icon: BarChart,
+    subMenu: [
+      {
+        id: 21,
+        title: "Организации",
+        href: "/statistic/orgs",
+        icon: Minus,
+      },
+      {
+        id: 22,
+        title: "Транзакции",
+        href: "/statistic/transactions",
+        icon: Minus,
+      },
+      {
+        id: 23,
+        title: "Пользователи",
+        href: "/statistic/users",
+        icon: Minus,
+      },
+      {
+        id: 24,
+        title: "Возможности",
+        href: "/statistic/opportunities",
+        icon: Minus,
+      },
+    ],
   },
   {
     id: 3,

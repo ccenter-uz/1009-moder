@@ -20,7 +20,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FC } from "react";
 import { PenTool, Plus, Search, Trash } from "react-feather";
 
-export const Razdel: FC = () => {
+export const StatisticsTransactions: FC = () => {
   const { current, pageSize, total, setTotal } = usePagination();
   const { t } = useLang();
   const searchParams = useSearchParams();
@@ -28,7 +28,7 @@ export const Razdel: FC = () => {
   const breadcrumb = [
     {
       id: 1,
-      title: t("razdel"),
+      title: t("statistics-transactions"),
     },
     {
       id: 2,
@@ -120,7 +120,7 @@ export const Razdel: FC = () => {
 
   return (
     <Box my={{ base: "0", sm: "0", md: "0.5em", xl: "1em" }}>
-      <TitlePart title={t("razdel")} breadcrumb={breadcrumb} />
+      <TitlePart title={t("statistics-transactions")} breadcrumb={breadcrumb} />
       <Box display={"flex"} w={"100%"} justifyContent={"flex-end"}>
         <Button
           h={{ base: "25px", sm: "25px", md: "35px", xl: "35px" }}

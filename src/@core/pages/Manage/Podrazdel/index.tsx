@@ -125,7 +125,7 @@ export const Podrazdel: FC = () => {
           fontSize={scssVariables.fonts.parag}
           fontWeight={400}
           _hover={{ opacity: "0.8", transition: "all 0.2s linear" }}
-          _focus={{ boxShadow: "none", bg: "teal" }}
+          _focus={{ boxShadow: "none" }}
           _active={{ transform: "scale(0.98)" }}
           rightIcon={<Plus width={"15"} height={"15"} />}
           px={0}

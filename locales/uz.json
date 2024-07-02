@@ -84,5 +84,9 @@
   "all-organizations": "Barcha tashkilotlar",
   "myOrganizations": "Mening tashkilotlarim",
   "Organizations": "Tashkilotlar",
-  "requests": "Ilovalar"
+  "requests": "Ilovalar",
+  "statistics-users": "Foydalanuvchi statistikasi",
+  "statistics-transactions": "Tranzaktsiyalar statistikasi",
+  "statistics-orgs": "Tashkilot statistikasi",
+  "statistics-opportunities": "Imkoniyatlar statistikasi"
 }
